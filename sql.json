@@ -12,4 +12,283 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	
+	"SELECT文 短め 句内改行なし": {
+		"prefix": "SELECT FROM WHERE",
+		"body": [
+			"SELECT ${1:カラム名}",
+			"FROM ${2:テーブル名}",
+			"WHERE ${3:条件}",
+			";"
+		],
+		"description": "SELECT"
+	}
+	
+	,"SELECT文 短め 句内改行あり": {
+		"prefix": "SELECT FROM WHERE",
+		"body": [
+			"SELECT",
+			"    ${1:カラム名}",
+			"FROM",
+			"    ${2:テーブル名}",
+			"WHERE",
+			"    ${3:条件}",
+			";"
+		],
+		"description": "SELECT"
+	}
+	
+	,"SELECT文 長め 句内改行なし": {
+		"prefix": "SELECT FROM WHERE .. ORDER BY",
+		"body": [
+			"SELECT ${1:カラム名}",
+			"FROM ${2:テーブル名}",
+			"WHERE ${3:条件}",
+			"GROUP BY ${4:カラム名}",
+			"HAVING ${5:条件}",
+			"ORDER BY ${6:カラム名 DESC}",
+			";"
+		],
+		"description": "SELECT"
+	}
+	
+	,"SELECT文 長め 句内改行あり": {
+		"prefix": "SELECT FROM WHERE .. ORDER BY",
+		"body": [
+			"SELECT",
+			"    ${1:カラム名}",
+			"FROM",
+			"    ${2:テーブル名}",
+			"WHERE",
+			"    ${3:条件}",
+			"GROUP BY",
+			"    ${4:カラム名}",
+			"HAVING",
+			"    ${5:条件}",
+			"ORDER BY",
+			"    ${6:カラム名 DESC}",
+			";"
+		],
+		"description": "SELECT"
+	}
+	
+	,"SELECT COUNT": {
+		"prefix": "SELECT COUNT(*)",
+		"body": [
+			"SELECT COUNT(*)",
+			"FROM ${1:テーブル名}",
+			";"
+		],
+		"description": "SELECT"
+	}
+	
+	
+	
+	// SELECT文
+	,"SELECT句 改行なし": {
+		"prefix": "SELECT",
+		"body": [
+			"SELECT ${1:カラム名}",
+			""
+		],
+		"description": "SELECT"
+	}
+	
+	,"SELECT句 改行あり": {
+		"prefix": "SELECT >>",
+		"body": [
+			"SELECT",
+			"    ${1:カラム名}",
+			""
+		],
+		"description": "SELECT"
+	}
+	
+	,"FROM句 改行なし": {
+		"prefix": "FROM",
+		"body": [
+			"FROM ${1:テーブル名}",
+			""
+		],
+		"description": "FROM"
+	}
+	
+	,"FROM句 改行あり": {
+		"prefix": "FROM >>",
+		"body": [
+			"FROM",
+			"    ${1:テーブル名}",
+			""
+		],
+		"description": "FROM"
+	}
+	
+	,"WHERE句 改行なし": {
+		"prefix": "WHERE",
+		"body": [
+			"WHERE ${1:条件}",
+			""
+		],
+		"description": "WHERE"
+	}
+	
+	,"WHERE句 改行あり": {
+		"prefix": "WHERE >>",
+		"body": [
+			"WHERE",
+			"    ${1:条件}",
+			""
+		],
+		"description": "WHERE"
+	}
+	
+	,"GROUP BY句 改行なし": {
+		"prefix": "GROUP BY",
+		"body": [
+			"GROUP BY ${1:カラム名}",
+			""
+		],
+		"description": "GROUP BY"
+	}
+	
+	,"GROUP BY句 改行あり": {
+		"prefix": "GROUP BY >>",
+		"body": [
+			"GROUP BY",
+			"    ${1:カラム名}",
+			""
+		],
+		"description": "GROUP BY"
+	}
+	
+	,"HAVING句 改行なし": {
+		"prefix": "HAVING",
+		"body": [
+			"HAVING ${1:条件}",
+			""
+		],
+		"description": "HAVING"
+	}
+	
+	,"HAVING句 改行あり": {
+		"prefix": "HAVING >>",
+		"body": [
+			"HAVING",
+			"    ${1:条件}",
+			""
+		],
+		"description": "HAVING"
+	}
+	
+	,"ORDER BY句 改行なし": {
+		"prefix": "ORDER BY",
+		"body": [
+			"ORDER BY ${1:カラム名 DESC}",
+			""
+		],
+		"description": "ORDER BY"
+	}
+	
+	,"ORDER BY句 改行あり": {
+		"prefix": "ORDER BY >>",
+		"body": [
+			"ORDER BY",
+			"    ${1:カラム名 DESC}",
+			""
+		],
+		"description": "ORDER BY"
+	}
+	
+	
+	
+	// 演算子
+	,"BETWEEN演算子": {
+		"prefix": "BETWEEN .. AND ..",
+		"body": ["BETWEEN ${1:最小値} AND ${2:最大値}"],
+		"description": "BETWEEN"
+	}
+	
+	,"IN演算子": {
+		"prefix": "IN(.., ..)",
+		"body": ["IN(${1:値}, ${2:値})"],
+		"description": "IN"
+	}
+	
+	,"LIKE演算子": {
+		"prefix": "LIKE '..'",
+		"body": ["LIKE '${1:文字列 % _ など}'",],
+		"description": "LIKE"
+	}
+	
+	
+	// 条件
+	,"AND": {
+		"prefix": "AND",
+		"body": ["AND $1"],
+		"description": "AND"
+	}
+	
+	,"OR": {
+		"prefix": "OR",
+		"body": ["OR $1"],
+		"description": "OR"
+	}
+	
+	,"NOT": {
+		"prefix": "NOT",
+		"body": ["NOT $1"],
+		"description": "NOT"
+	}
+	
+	
+	// グループ関数
+	,"COUNT関数": {
+		"prefix": "COUNT(..)",
+		"body": ["COUNT(${1:カラム名／値})"],
+		"description": "COUNT"
+	}
+	
+	,"SUM関数": {
+		"prefix": "SUM(..)",
+		"body": ["SUM(${1:カラム名／値})"],
+		"description": "SUM"
+	}
+	
+	,"MIN関数": {
+		"prefix": "MIN(..)",
+		"body": ["MIN(${1:カラム名／値})"],
+		"description": "MIN"
+	}
+	
+	,"MAX関数": {
+		"prefix": "MAX(..)",
+		"body": ["MAX(${1:カラム名／値})"],
+		"description": "MAX"
+	}
+	
+	
+	//その他キーワード
+	,"単純CASE式": {
+		"prefix": "CASE .. WHEN ... END",
+		"body": [
+			"CASE ${1:カラム名}",
+			"WHEN ${2:値1} THEN ${3:処理1}",
+			"WHEN ${4:値2} THEN ${5:処理2}",
+			"ELSE ${6:その他の処理} END",
+			""
+		],
+		"description": "CASE"
+	}
+	
+	,"検索CASE式": {
+		"prefix": "CASE WHEN ... END",
+		"body": [
+			"CASE WHEN ${1:条件1} THEN ${2:処理1}",
+			"     WHEN ${3:条件2} THEN ${4:処理2}",
+			"     ELSE ${5:その他の処理} END",
+			""
+		],
+		"description": "CASE"
+	}
+	
 }
