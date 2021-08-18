@@ -200,6 +200,178 @@
 	}
 	
 	
+	// 結合関係
+	,"NATURAL JOIN 改行なし": {
+		"prefix": "NATURAL JOIN",
+		"body": [
+			"NATURAL JOIN ${1:結合するテーブル名}",
+			""
+		],
+		"description": "NATURAL JOIN"
+	}
+	
+	,"NATURAL JOIN 改行あり": {
+		"prefix": "NATURAL JOIN >>",
+		"body": [
+			"NATURAL JOIN",
+			"    ${1:結合するテーブル名}",
+			""
+		],
+		"description": "NATURAL JOIN"
+	}
+	
+	,"CROSS JOIN 改行なし": {
+		"prefix": "CROSS JOIN",
+		"body": [
+			"CROSS JOIN ${1:結合するテーブル名}",
+			""
+		],
+		"description": "CROSS JOIN"
+	}
+	
+	,"CROSS JOIN 改行あり": {
+		"prefix": "CROSS JOIN >>",
+		"body": [
+			"CROSS JOIN",
+			"    ${1:結合するテーブル名}",
+			""
+		],
+		"description": "CROSS JOIN"
+	}
+	
+	,"JOIN ON 句内改行なし": {
+		"prefix": "JOIN .. ON ..",
+		"body": [
+			"JOIN ${1:結合するテーブル名}",
+			"ON ${2:結合条件}",
+			""
+		],
+		"description": "JOIN"
+	}
+	
+	,"JOIN ON 句内改行あり": {
+		"prefix": "JOIN >> ON >>",
+		"body": [
+			"JOIN",
+			"    ${1:結合するテーブル名}",
+			"ON",
+			"    ${2:結合条件}",
+			""
+		],
+		"description": "JOIN"
+	}
+	
+	,"INNER JOIN ON 句内改行なし": {
+		"prefix": "INNER JOIN .. ON ..",
+		"body": [
+			"INNER JOIN ${1:結合するテーブル名}",
+			"ON ${2:結合条件}",
+			""
+		],
+		"description": "INNER JOIN"
+	}
+	
+	,"INNER JOIN ON 句内改行あり": {
+		"prefix": "INNER JOIN .. ON .. >>",
+		"body": [
+			"INNER JOIN",
+			"    ${1:結合するテーブル名}",
+			"ON",
+			"    ${2:結合条件}",
+			""
+		],
+		"description": "INNER JOIN"
+	}
+	
+	,"LEFT JOIN ON 句内改行なし": {
+		"prefix": "LEFT JOIN .. ON ..",
+		"body": [
+			"LEFT JOIN ${1:結合するテーブル名}",
+			"ON ${2:結合条件}",
+			""
+		],
+		"description": "LEFT JOIN"
+	}
+	
+	,"LEFT JOIN ON 句内改行あり": {
+		"prefix": "LEFT JOIN .. ON .. >>",
+		"body": [
+			"LEFT JOIN",
+			"    ${1:結合するテーブル名}",
+			"ON",
+			"    ${2:結合条件}",
+			""
+		],
+		"description": "LEFT JOIN"
+	}
+	
+	,"LEFT OUTER JOIN ON 句内改行なし": {
+		"prefix": "LEFT OUTER JOIN .. ON ..",
+		"body": [
+			"LEFT OUTER JOIN ${1:結合するテーブル名}",
+			"ON ${2:結合条件}",
+			""
+		],
+		"description": "LEFT OUTER JOIN"
+	}
+	
+	,"LEFT OUTER JOIN ON 句内改行あり": {
+		"prefix": "LEFT OUTER JOIN .. ON .. >>",
+		"body": [
+			"LEFT OUTER JOIN",
+			"    ${1:結合するテーブル名}",
+			"ON",
+			"    ${2:結合条件}",
+			""
+		],
+		"description": "LEFT OUTER JOIN"
+	}
+	
+	,"RIGHT JOIN ON 句内改行なし": {
+		"prefix": "RIGHT JOIN .. ON ..",
+		"body": [
+			"RIGHT JOIN ${1:結合するテーブル名}",
+			"ON ${2:結合条件}",
+			""
+		],
+		"description": "RIGHT JOIN"
+	}
+	
+	,"RIGHT JOIN ON 句内改行あり": {
+		"prefix": "RIGHT JOIN .. ON .. >>",
+		"body": [
+			"RIGHT JOIN",
+			"    ${1:結合するテーブル名}",
+			"ON",
+			"    ${2:結合条件}",
+			""
+		],
+		"description": "RIGHT JOIN"
+	}
+	
+	,"RIGHT OUTER JOIN ON 句内改行なし": {
+		"prefix": "RIGHT OUTER JOIN .. ON ..",
+		"body": [
+			"RIGHT OUTER JOIN ${1:結合するテーブル名}",
+			"ON ${2:結合条件}",
+			""
+		],
+		"description": "RIGHT OUTER JOIN"
+	}
+	
+	,"RIGHT OUTER JOIN ON 句内改行あり": {
+		"prefix": "RIGHT OUTER JOIN .. ON .. >>",
+		"body": [
+			"RIGHT OUTER JOIN",
+			"    ${1:結合するテーブル名}",
+			"ON",
+			"    ${2:結合条件}",
+			""
+		],
+		"description": "RIGHT OUTER JOIN"
+	}
+	
+	
 	
 	// 演算子
 	,"BETWEEN演算子": {
@@ -224,19 +396,19 @@
 	// 条件
 	,"AND": {
 		"prefix": "AND",
-		"body": ["AND $1"],
+		"body": ["AND "],
 		"description": "AND"
 	}
 	
 	,"OR": {
 		"prefix": "OR",
-		"body": ["OR $1"],
+		"body": ["OR "],
 		"description": "OR"
 	}
 	
 	,"NOT": {
 		"prefix": "NOT",
-		"body": ["NOT $1"],
+		"body": ["NOT "],
 		"description": "NOT"
 	}
 	
@@ -291,4 +463,9 @@
 		"description": "CASE"
 	}
 	
+	,"DISTINCT": {
+		"prefix": "DISTINCT",
+		"body": ["DISTINCT "],
+		"description": "DISTINCT"
+	}
 }
