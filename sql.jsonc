@@ -216,7 +216,7 @@
 	
 	,"LIKE演算子": {
 		"prefix": "LIKE '..'",
-		"body": ["LIKE '${1:文字列 % _ など}'",],
+		"body": ["LIKE '${1:文字列 % _ など}'"],
 		"description": "LIKE"
 	}
 	
