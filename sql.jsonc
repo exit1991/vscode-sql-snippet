@@ -87,10 +87,7 @@
 	// SELECT文
 	,"SELECT句 改行なし": {
 		"prefix": "SELECT",
-		"body": [
-			"SELECT ${1:カラム名}",
-			""
-		],
+		"body": ["SELECT ${1:カラム名}"],
 		"description": "SELECT"
 	}
 	
@@ -106,10 +103,7 @@
 	
 	,"FROM句 改行なし": {
 		"prefix": "FROM",
-		"body": [
-			"FROM ${1:テーブル名}",
-			""
-		],
+		"body": ["FROM ${1:テーブル名}"],
 		"description": "FROM"
 	}
 	
@@ -125,10 +119,7 @@
 	
 	,"WHERE句 改行なし": {
 		"prefix": "WHERE",
-		"body": [
-			"WHERE ${1:条件}",
-			""
-		],
+		"body": ["WHERE ${1:条件}"],
 		"description": "WHERE"
 	}
 	
@@ -144,10 +135,7 @@
 	
 	,"GROUP BY句 改行なし": {
 		"prefix": "GROUP BY",
-		"body": [
-			"GROUP BY ${1:カラム名}",
-			""
-		],
+		"body": ["GROUP BY ${1:カラム名}"],
 		"description": "GROUP BY"
 	}
 	
@@ -163,10 +151,7 @@
 	
 	,"HAVING句 改行なし": {
 		"prefix": "HAVING",
-		"body": [
-			"HAVING ${1:条件}",
-			""
-		],
+		"body": ["HAVING ${1:条件}"],
 		"description": "HAVING"
 	}
 	
@@ -182,10 +167,7 @@
 	
 	,"ORDER BY句 改行なし": {
 		"prefix": "ORDER BY",
-		"body": [
-			"ORDER BY ${1:カラム名 DESC}",
-			""
-		],
+		"body": ["ORDER BY ${1:カラム名 DESC}"],
 		"description": "ORDER BY"
 	}
 	
@@ -203,10 +185,7 @@
 	// 結合関係
 	,"NATURAL JOIN 改行なし": {
 		"prefix": "NATURAL JOIN",
-		"body": [
-			"NATURAL JOIN ${1:結合するテーブル名}",
-			""
-		],
+		"body": ["NATURAL JOIN ${1:結合するテーブル名}"],
 		"description": "NATURAL JOIN"
 	}
 	
@@ -222,10 +201,7 @@
 	
 	,"CROSS JOIN 改行なし": {
 		"prefix": "CROSS JOIN",
-		"body": [
-			"CROSS JOIN ${1:結合するテーブル名}",
-			""
-		],
+		"body": ["CROSS JOIN ${1:結合するテーブル名}"],
 		"description": "CROSS JOIN"
 	}
 	
@@ -243,8 +219,7 @@
 		"prefix": "JOIN .. ON ..",
 		"body": [
 			"JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}",
-			""
+			"ON ${2:結合条件}"
 		],
 		"description": "JOIN"
 	}
@@ -265,8 +240,7 @@
 		"prefix": "INNER JOIN .. ON ..",
 		"body": [
 			"INNER JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}",
-			""
+			"ON ${2:結合条件}"
 		],
 		"description": "INNER JOIN"
 	}
@@ -287,8 +261,7 @@
 		"prefix": "LEFT JOIN .. ON ..",
 		"body": [
 			"LEFT JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}",
-			""
+			"ON ${2:結合条件}"
 		],
 		"description": "LEFT JOIN"
 	}
@@ -309,8 +282,7 @@
 		"prefix": "LEFT OUTER JOIN .. ON ..",
 		"body": [
 			"LEFT OUTER JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}",
-			""
+			"ON ${2:結合条件}"
 		],
 		"description": "LEFT OUTER JOIN"
 	}
@@ -331,8 +303,7 @@
 		"prefix": "RIGHT JOIN .. ON ..",
 		"body": [
 			"RIGHT JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}",
-			""
+			"ON ${2:結合条件}"
 		],
 		"description": "RIGHT JOIN"
 	}
@@ -353,8 +324,7 @@
 		"prefix": "RIGHT OUTER JOIN .. ON ..",
 		"body": [
 			"RIGHT OUTER JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}",
-			""
+			"ON ${2:結合条件}"
 		],
 		"description": "RIGHT OUTER JOIN"
 	}
@@ -381,8 +351,8 @@
 	}
 	
 	,"IN演算子": {
-		"prefix": "IN(.., ..)",
-		"body": ["IN(${1:値}, ${2:値})"],
+		"prefix": "IN (.., ..)",
+		"body": ["IN (${1:値}, ${2:値})"],
 		"description": "IN"
 	}
 	
@@ -465,7 +435,76 @@
 	
 	,"DISTINCT": {
 		"prefix": "DISTINCT",
-		"body": ["DISTINCT "],
+		"body": ["DISTINCT"],
 		"description": "DISTINCT"
 	}
+	
+	
+	// DML
+	,"INSERT文": {
+		"prefix": "INSERT INTO ...",
+		"body": [
+			"INSERT INTO ${1:テーブル名} (${2:カラム名1}, ${3:カラム名2})",
+			"VALUES (${4:データ}, ${5:データ})",
+			"      ,(${6:データ}, ${7:データ})",
+			";"
+		],
+		"description": "INSERT"
+	}
+	
+	,"UPDATE文": {
+		"prefix": "UPDATE ...",
+		"body": [
+			"UPDATE ${1:テーブル名}",
+			"SET ${2:カラム名1} = ${3:値}",
+			"   ,${4:カラム名2} = ${5:値}",
+			"WHERE ${6:条件}",
+			";"
+		],
+		"description": "UPDATE文"
+	}
+	
+	,"DELETE文": {
+		"prefix": "DELETE FROM ...",
+		"body": [
+			"DELETE FROM ${1:テーブル名}",
+			"WHERE ${2:条件}",
+			";"
+		],
+		"description": "DELETE"
+	}
+	
+	// DDL
+	,"TRUNCATE TABLE文": {
+		"prefix": "TRUNCATE TABLE ...",
+		"body": [
+			"TRUNCATE TABLE ${1:テーブル名};",
+			""
+		],
+		"description": "TRUNCATE TABLE"
+	}
+	
+	,"CREATE TABLE文": {
+		"prefix": "CREATE TABLE ...",
+		"body": [
+			"CREATE TABLE ${1:テーブル名} (",
+			"     ${2:カラム名1} ${3:データ型} ${4:[制約]}",
+			"    ,${5:カラム名2} ${6:データ型} ${7:[制約]}",
+			"    ,${8:カラム名3} ${9:データ型} ${10:[制約]}",
+			"    ,${11:[表レベル制約]}",
+			");"
+		],
+		"description": "CREATE TABLE"
+	}
+	
+	,"DROP TABLE文": {
+		"prefix": "DROP TABLE ...",
+		"body": [
+			"DROP TABLE ${1:テーブル名};",
+			""
+		],
+		"description": "DROP TABLE"
+	}
+	
+	
 }
