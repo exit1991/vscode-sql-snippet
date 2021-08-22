@@ -13,26 +13,12 @@
 	// 	"description": "Log output to console"
 	// }
 	
-	"SELECT文 短め 句内改行なし": {
+	"SELECT文 短め": {
 		"prefix": "SELECT FROM WHERE",
 		"body": [
 			"SELECT ${1:カラム名}",
 			"FROM ${2:テーブル名}",
 			"WHERE ${3:条件}",
-			";"
-		],
-		"description": "SELECT"
-	}
-	
-	,"SELECT文 短め 句内改行あり": {
-		"prefix": "SELECT FROM WHERE",
-		"body": [
-			"SELECT",
-			"    ${1:カラム名}",
-			"FROM",
-			"    ${2:テーブル名}",
-			"WHERE",
-			"    ${3:条件}",
 			";"
 		],
 		"description": "SELECT"
@@ -52,26 +38,6 @@
 		"description": "SELECT"
 	}
 	
-	,"SELECT文 長め 句内改行あり": {
-		"prefix": "SELECT FROM WHERE .. ORDER BY",
-		"body": [
-			"SELECT",
-			"    ${1:カラム名}",
-			"FROM",
-			"    ${2:テーブル名}",
-			"WHERE",
-			"    ${3:条件}",
-			"GROUP BY",
-			"    ${4:カラム名}",
-			"HAVING",
-			"    ${5:条件}",
-			"ORDER BY",
-			"    ${6:カラム名 DESC}",
-			";"
-		],
-		"description": "SELECT"
-	}
-	
 	,"SELECT COUNT": {
 		"prefix": "SELECT COUNT(*)",
 		"body": [
@@ -85,99 +51,39 @@
 	
 	
 	// SELECT文
-	,"SELECT句 改行なし": {
+	,"SELECT句": {
 		"prefix": "SELECT",
 		"body": ["SELECT ${1:カラム名}"],
 		"description": "SELECT"
 	}
-	
-	,"SELECT句 改行あり": {
-		"prefix": "SELECT >>",
-		"body": [
-			"SELECT",
-			"    ${1:カラム名}",
-			""
-		],
-		"description": "SELECT"
-	}
-	
-	,"FROM句 改行なし": {
+		
+	,"FROM句": {
 		"prefix": "FROM",
 		"body": ["FROM ${1:テーブル名}"],
 		"description": "FROM"
 	}
-	
-	,"FROM句 改行あり": {
-		"prefix": "FROM >>",
-		"body": [
-			"FROM",
-			"    ${1:テーブル名}",
-			""
-		],
-		"description": "FROM"
-	}
-	
-	,"WHERE句 改行なし": {
+		
+	,"WHERE句": {
 		"prefix": "WHERE",
 		"body": ["WHERE ${1:条件}"],
 		"description": "WHERE"
 	}
-	
-	,"WHERE句 改行あり": {
-		"prefix": "WHERE >>",
-		"body": [
-			"WHERE",
-			"    ${1:条件}",
-			""
-		],
-		"description": "WHERE"
-	}
-	
-	,"GROUP BY句 改行なし": {
+		
+	,"GROUP BY句": {
 		"prefix": "GROUP BY",
 		"body": ["GROUP BY ${1:カラム名}"],
 		"description": "GROUP BY"
 	}
 	
-	,"GROUP BY句 改行あり": {
-		"prefix": "GROUP BY >>",
-		"body": [
-			"GROUP BY",
-			"    ${1:カラム名}",
-			""
-		],
-		"description": "GROUP BY"
-	}
-	
-	,"HAVING句 改行なし": {
+	,"HAVING句": {
 		"prefix": "HAVING",
 		"body": ["HAVING ${1:条件}"],
 		"description":"【例】HAVING COUNT(col) >= 2"
 	}
 	
-	,"HAVING句 改行あり": {
-		"prefix": "HAVING >>",
-		"body": [
-			"HAVING",
-			"    ${1:条件}",
-			""
-		],
-		"description": "【例】HAVING COUNT(col) >= 2"
-	}
-	
-	,"ORDER BY句 改行なし": {
+	,"ORDER BY句": {
 		"prefix": "ORDER BY",
 		"body": ["ORDER BY ${1:カラム名 DESC}"],
-		"description": "ORDER BY"
-	}
-	
-	,"ORDER BY句 改行あり": {
-		"prefix": "ORDER BY >>",
-		"body": [
-			"ORDER BY",
-			"    ${1:カラム名 DESC}",
-			""
-		],
 		"description": "ORDER BY"
 	}
 	
@@ -241,164 +147,59 @@
 	
 	
 	// 結合関係
-	,"NATURAL JOIN 改行なし": {
+	,"NATURAL JOIN": {
 		"prefix": "NATURAL JOIN",
 		"body": ["NATURAL JOIN ${1:結合するテーブル名}"],
 		"description": "NATURAL JOIN"
 	}
 	
-	,"NATURAL JOIN 改行あり": {
-		"prefix": "NATURAL JOIN >>",
-		"body": [
-			"NATURAL JOIN",
-			"    ${1:結合するテーブル名}",
-			""
-		],
-		"description": "NATURAL JOIN"
+	,"JOIN USING": {
+		"prefix": "JOIN .. USING (..)",
+		"body": ["JOIN ${1:結合するテーブル名}","USING (${2:結合カラム})"],
+		"description": "JOIN"
 	}
 	
-	,"CROSS JOIN 改行なし": {
-		"prefix": "CROSS JOIN",
-		"body": ["CROSS JOIN ${1:結合するテーブル名}"],
-		"description": "CROSS JOIN"
-	}
-	
-	,"CROSS JOIN 改行あり": {
-		"prefix": "CROSS JOIN >>",
-		"body": [
-			"CROSS JOIN",
-			"    ${1:結合するテーブル名}",
-			""
-		],
-		"description": "CROSS JOIN"
-	}
-	
-	,"JOIN ON 句内改行なし": {
+	,"JOIN ON": {
 		"prefix": "JOIN .. ON ..",
-		"body": [
-			"JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}"
-		],
+		"body": ["JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "JOIN"
 	}
 	
-	,"JOIN ON 句内改行あり": {
-		"prefix": "JOIN >> ON >>",
-		"body": [
-			"JOIN",
-			"    ${1:結合するテーブル名}",
-			"ON",
-			"    ${2:結合条件}",
-			""
-		],
-		"description": "JOIN"
-	}
-	
-	,"INNER JOIN ON 句内改行なし": {
+	,"INNER JOIN ON": {
 		"prefix": "INNER JOIN .. ON ..",
-		"body": [
-			"INNER JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}"
-		],
+		"body": ["INNER JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "INNER JOIN"
 	}
 	
-	,"INNER JOIN ON 句内改行あり": {
-		"prefix": "INNER JOIN .. ON .. >>",
-		"body": [
-			"INNER JOIN",
-			"    ${1:結合するテーブル名}",
-			"ON",
-			"    ${2:結合条件}",
-			""
-		],
-		"description": "INNER JOIN"
-	}
-	
-	,"LEFT JOIN ON 句内改行なし": {
+	,"LEFT JOIN ON": {
 		"prefix": "LEFT JOIN .. ON ..",
-		"body": [
-			"LEFT JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}"
-		],
+		"body": ["LEFT JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "LEFT JOIN"
 	}
 	
-	,"LEFT JOIN ON 句内改行あり": {
-		"prefix": "LEFT JOIN .. ON .. >>",
-		"body": [
-			"LEFT JOIN",
-			"    ${1:結合するテーブル名}",
-			"ON",
-			"    ${2:結合条件}",
-			""
-		],
-		"description": "LEFT JOIN"
-	}
-	
-	,"LEFT OUTER JOIN ON 句内改行なし": {
+	,"LEFT OUTER JOIN ON": {
 		"prefix": "LEFT OUTER JOIN .. ON ..",
-		"body": [
-			"LEFT OUTER JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}"
-		],
+		"body": ["LEFT OUTER JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "LEFT OUTER JOIN"
 	}
 	
-	,"LEFT OUTER JOIN ON 句内改行あり": {
-		"prefix": "LEFT OUTER JOIN .. ON .. >>",
-		"body": [
-			"LEFT OUTER JOIN",
-			"    ${1:結合するテーブル名}",
-			"ON",
-			"    ${2:結合条件}",
-			""
-		],
-		"description": "LEFT OUTER JOIN"
-	}
-	
-	,"RIGHT JOIN ON 句内改行なし": {
+	,"RIGHT JOIN ON": {
 		"prefix": "RIGHT JOIN .. ON ..",
-		"body": [
-			"RIGHT JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}"
-		],
+		"body": ["RIGHT JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "RIGHT JOIN"
 	}
 	
-	,"RIGHT JOIN ON 句内改行あり": {
-		"prefix": "RIGHT JOIN .. ON .. >>",
-		"body": [
-			"RIGHT JOIN",
-			"    ${1:結合するテーブル名}",
-			"ON",
-			"    ${2:結合条件}",
-			""
-		],
-		"description": "RIGHT JOIN"
-	}
-	
-	,"RIGHT OUTER JOIN ON 句内改行なし": {
+	,"RIGHT OUTER JOIN ON": {
 		"prefix": "RIGHT OUTER JOIN .. ON ..",
-		"body": [
-			"RIGHT OUTER JOIN ${1:結合するテーブル名}",
-			"ON ${2:結合条件}"
-		],
+		"body": ["RIGHT OUTER JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "RIGHT OUTER JOIN"
 	}
 	
-	,"RIGHT OUTER JOIN ON 句内改行あり": {
-		"prefix": "RIGHT OUTER JOIN .. ON .. >>",
-		"body": [
-			"RIGHT OUTER JOIN",
-			"    ${1:結合するテーブル名}",
-			"ON",
-			"    ${2:結合条件}",
-			""
-		],
-		"description": "RIGHT OUTER JOIN"
+	,"CROSS JOIN": {
+		"prefix": "CROSS JOIN",
+		"body": ["CROSS JOIN ${1:結合するテーブル名} ${2:表接頭辞}"],
+		"description": "CROSS JOIN"
 	}
-	
 	
 	
 	// 演算子
