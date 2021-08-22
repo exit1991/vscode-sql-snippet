@@ -152,7 +152,7 @@
 	,"HAVING句 改行なし": {
 		"prefix": "HAVING",
 		"body": ["HAVING ${1:条件}"],
-		"description": "HAVING"
+		"description":"【例】HAVING COUNT(col) >= 2"
 	}
 	
 	,"HAVING句 改行あり": {
@@ -162,7 +162,7 @@
 			"    ${1:条件}",
 			""
 		],
-		"description": "HAVING"
+		"description": "【例】HAVING COUNT(col) >= 2"
 	}
 	
 	,"ORDER BY句 改行なし": {
@@ -180,6 +180,64 @@
 		],
 		"description": "ORDER BY"
 	}
+	
+	
+	// OFFSET・LIMIT関係
+	,"LIMIT句 行数  - MySQL, PostgreSQL": {
+		"prefix": "LIMIT ..",
+		"body": ["LIMIT ${1:行数}"],
+		"description": "LIMIT"
+	}
+	
+	,"LIMIT句 開始行 行数 - MySQL, PostgreSQL": {
+		"prefix": "LIMIT .., ..",
+		"body": ["LIMIT ${1:開始行}, ${2:行数}"],
+		"description": "LIMIT"
+	}
+	
+	,"LIMIT句 OFFSET句 - MySQL, PostgreSQL": {
+		"prefix": "LIMIT .. OFFSET ..",
+		"body": [
+			"LIMIT ${1:行数}",
+			"OFFSET ${2:開始行}"
+		],
+		"description": "LIMIT OFFSET"
+	}
+	
+	,"OFFSET句 - MySQL, PostgreSQL": {
+		"prefix": "OFFSET ..",
+		"body": ["OFFSET ${1:開始行}"],
+		"description": "OFFSET"
+	}
+	
+	,"TOP - Microsoft": {
+		"prefix": "TOP ..",
+		"body": ["TOP ${1:行数}"],
+		"description": "TOP"
+	}
+	
+	,"OFFSET句 - Oracle": {
+		"prefix": "OFFSET .. ROWS",
+		"body": ["OFFSET ${1:開始行} ROWS"],
+		"description": "OFFSET"
+	}
+	
+	,"OFFSET句 FETCH句 - Oracle": {
+		"prefix": "OFFSET .. FETCH ..",
+		"body": [
+			"OFFSET ${1:開始行} ROWS",
+			"FETCH FIRST ${2:行数} ROWS ${3:ONLY/TIES}",
+			""
+		],
+		"description": "OFFSET FETCH"
+	}
+	
+	,"FETCH句 - Oracle": {
+		"prefix": "FETCH ..",
+		"body": ["FETCH FIRST ${1:行数} ROWS ${2:ONLY/TIES}"],
+		"description": "FETCH"
+	}
+	
 	
 	
 	// 結合関係
