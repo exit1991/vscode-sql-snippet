@@ -1,130 +1,111 @@
 {
+	// SELECT文 全体
 	"SELECT文 短": {
 		"prefix": "SELECT ~ WHERE ..",
-		"body": [
-			"SELECT ${1:カラム名}",
-			"FROM ${2:テーブル名}",
-			"WHERE ${3:条件}",
-			";"
-		],
+		"body": ["SELECT ${1:カラム名}","FROM ${2:テーブル名}","WHERE ${3:条件}",";"],
 		"description": "[例] SELECT col1 FROM table1 WHERE col1 = 3;"
-	}
+	},
 	
-	,"SELECT文 長": {
+	"SELECT文 長": {
 		"prefix": "SELECT ~ ORDER BY ..",
-		"body": [
-			"SELECT ${1:カラム名}",
-			"FROM ${2:テーブル名}",
-			"WHERE ${3:条件}",
-			"GROUP BY ${4:カラム名}",
-			"HAVING ${5:条件}",
-			"ORDER BY ${6:カラム名 ASC/DESC}",
-			";"
-		],
+		"body": ["SELECT ${1:カラム名}","FROM ${2:テーブル名}","WHERE ${3:条件}","GROUP BY ${4:カラム名}","HAVING ${5:条件}","ORDER BY ${6:カラム名 ASC/DESC}",";"],
 		"description": "[例] SELECT col1, COUNT(*) FROM table1 WHERE col2 = 3 GROUP BY col1 HAVING COUNT(*) >= 2 ORDER BY COUNT(*);"
-	}
+	},
 	
-	,"SELECT COUNT(*) ..": {
+	"SELECT COUNT(*) ..": {
 		"prefix": "SELECT COUNT(*) FROM ..",
-		"body": [
-			"SELECT COUNT(*)",
-			"FROM ${1:テーブル名}",
-			";"
-		],
+		"body": ["SELECT COUNT(*)","FROM ${1:テーブル名}",";"],
 		"description": "[例] SELECT COUNT(*) FROM table1;"
-	}
+	},
 	
-	,"SELECT FROM dual [Oracle]": {
+	"SELECT FROM dual [Oracle]": {
 		"prefix": "SELECT .. FROM dual",
-		"body": [
-			"SELECT ${1:処理}",
-			"FROM dual",
-			";"
-		],
+		"body": ["SELECT ${1:処理}","FROM dual",";"],
 		"description": "[例] SELECT 1 + 1 FROM dual;"
-	}
+	},
 	
 	
 	
-	// SELECT文
-	,"SELECT句": {
+	// SELECT文 句別
+	"SELECT句": {
 		"prefix": "SELECT ..",
 		"body": ["SELECT ${1:カラム名}"],
 		"description": "[例] SELECT col1, col2, col3"
-	}
-		
-	,"FROM句": {
+	},
+	
+	"FROM句": {
 		"prefix": "FROM ..",
 		"body": ["FROM ${1:テーブル名}"],
 		"description": "[例] FROM table1"
-	}
-		
-	,"WHERE句": {
+	},
+	
+	"WHERE句": {
 		"prefix": "WHERE ..",
 		"body": ["WHERE ${1:条件}"],
 		"description": "[例] WHERE col2 = 'taro"
-	}
-		
-	,"GROUP BY句": {
+	},
+	
+	"GROUP BY句": {
 		"prefix": "GROUP BY ..",
 		"body": ["GROUP BY ${1:カラム名}"],
 		"description": "[例] GROUP BY col1"
-	}
+	},
 	
-	,"HAVING句": {
+	"HAVING句": {
 		"prefix": "HAVING ..",
 		"body": ["HAVING ${1:条件}"],
 		"description":"[例] HAVING COUNT(col1) >= 2"
-	}
+	},
 	
-	,"ORDER BY句": {
+	"ORDER BY句": {
 		"prefix": "ORDER BY ..",
 		"body": ["ORDER BY ${1:カラム名 ASC/DESC}"],
 		"description": "[例] ORDER BY col1 DESC, col2"
-	}
+	},
+	
 	
 	
 	// OFFSET・LIMIT関係
-	,"LIMIT句 行数  [MySQL/PostgreSQL]": {
+	"LIMIT句 行数  [MySQL/PostgreSQL]": {
 		"prefix": "LIMIT ..",
 		"body": ["LIMIT ${1:行数}"],
 		"description": "[例] LIMIT 100"
-	}
+	},
 	
-	,"LIMIT句 開始行 行数 [MySQL/PostgreSQL]": {
+	"LIMIT句 開始行 行数 [MySQL/PostgreSQL]": {
 		"prefix": "LIMIT .., ..",
 		"body": ["LIMIT ${1:開始行}, ${2:行数}"],
 		"description": "[例] LIMIT 10, 100"
-	}
+	},
 	
-	,"LIMIT句 & OFFSET句 [MySQL/PostgreSQL]": {
+	"LIMIT句 & OFFSET句 [MySQL/PostgreSQL]": {
 		"prefix": "LIMIT .. OFFSET ..",
 		"body": [
 			"LIMIT ${1:行数}",
 			"OFFSET ${2:開始行}"
 		],
 		"description": "LIMIT OFFSET"
-	}
+	},
 	
-	,"OFFSET句 [MySQL/PostgreSQL]": {
+	"OFFSET句 [MySQL/PostgreSQL]": {
 		"prefix": "OFFSET ..",
 		"body": ["OFFSET ${1:開始行}"],
 		"description": "OFFSET"
-	}
+	},
 	
-	,"TOP [SQLServer]": {
+	"TOP [SQLServer]": {
 		"prefix": "TOP ..",
 		"body": ["TOP ${1:行数}"],
 		"description": "TOP"
-	}
+	},
 	
-	,"OFFSET句 [Oracle]": {
+	"OFFSET句 [Oracle]": {
 		"prefix": "OFFSET .. ROWS",
 		"body": ["OFFSET ${1:開始行} ROWS"],
 		"description": "OFFSET"
-	}
+	},
 	
-	,"OFFSET句 & FETCH句 [Oracle]": {
+	"OFFSET句 & FETCH句 [Oracle]": {
 		"prefix": "OFFSET .. FETCH ..",
 		"body": [
 			"OFFSET ${1:開始行} ROWS",
@@ -132,239 +113,244 @@
 			""
 		],
 		"description": "OFFSET FETCH"
-	}
+	},
 	
-	,"FETCH句 [Oracle]": {
+	"FETCH句 [Oracle]": {
 		"prefix": "FETCH ..",
 		"body": ["FETCH FIRST ${1:行数} ROWS ${2:ONLY/TIES}"],
 		"description": "FETCH"
-	}
+	},
+	
 	
 	
 	// 結合関連
-	,"自然結合": {
+	"自然結合": {
 		"prefix": "NATURAL JOIN",
 		"body": ["NATURAL JOIN ${1:結合するテーブル名}"],
 		"description": "自然結合では結合するテーブル同士に共通する名前の列で自動的に結合を行います。表接頭辞、結合条件は指定できません。"
-	}
+	},
 	
-	,"USING句結合": {
+	"USING句結合": {
 		"prefix": "JOIN .. USING (..)",
 		"body": ["JOIN ${1:結合するテーブル名}","USING (${2:結合カラム})"],
 		"description": "USING句を使用した結合では、USING句で結合するカラムを指定します。表接頭辞、非等価結合などの結合条件は指定できません。"
-	}
+	},
 	
-	,"内部結合1": {
+	"内部結合1": {
 		"prefix": "JOIN .. ON ..",
 		"body": ["JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "内部結合では、ON句の指定した結合条件に基づいてテーブルが結合されます。表接頭辞、結合条件の指定が必須です。"
-	}
+	},
 	
-	,"内部結合2": {
+	"内部結合2": {
 		"prefix": "INNER JOIN .. ON ..",
 		"body": ["INNER JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "内部結合では、ON句の指定した結合条件に基づいてテーブルが結合されます。表接頭辞、結合条件の指定が必須です。"
-	}
+	},
 	
-	,"左側外部結合1": {
+	"左側外部結合1": {
 		"prefix": "LEFT JOIN .. ON ..",
 		"body": ["LEFT JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "ON句の指定した結合条件に基づいてテーブルが結合されますが、先に指定したテーブルのデータは結合条件に一致していなくても出力されます。表接頭辞、結合条件の指定が必須です。"
-	}
+	},
 	
-	,"左側外部結合2": {
+	"左側外部結合2": {
 		"prefix": "LEFT OUTER JOIN .. ON ..",
 		"body": ["LEFT OUTER JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "ON句の指定した結合条件に基づいてテーブルが結合されますが、先に指定したテーブルのデータは結合条件に一致していなくても出力されます。表接頭辞、結合条件の指定が必須です。"
-	}
+	},
 	
-	,"右側外部結合1": {
+	"右側外部結合1": {
 		"prefix": "RIGHT JOIN .. ON ..",
 		"body": ["RIGHT JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "ON句の指定した結合条件に基づいてテーブルが結合されますが、後に指定したテーブルのデータは結合条件に一致していなくても出力されます。表接頭辞、結合条件の指定が必須です。"
-	}
+	},
 	
-	,"右側外部結合2": {
+	"右側外部結合2": {
 		"prefix": "RIGHT OUTER JOIN .. ON ..",
 		"body": ["RIGHT OUTER JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "ON句の指定した結合条件に基づいてテーブルが結合されますが、後に指定したテーブルのデータは結合条件に一致していなくても出力されます。表接頭辞、結合条件の指定が必須です。"
-	}
+	},
 	
-	,"完全外部結合1": {
+	"完全外部結合1": {
 		"prefix": "FULL JOIN .. ON ..",
 		"body": ["FULL JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "ON句の指定した結合条件に基づいてテーブルが結合されますが、結合条件に一致していないデータも出力されます。表接頭辞、結合条件の指定が必須です。"
-	}
+	},
 	
-	,"完全外部結合2": {
+	"完全外部結合2": {
 		"prefix": "FULL OUTER JOIN .. ON ..",
 		"body": ["FULL OUTER JOIN ${1:結合するテーブル名} ${2:表接頭辞}","ON ${3:結合条件}"],
 		"description": "ON句の指定した結合条件に基づいてテーブルが結合されますが、結合条件に一致していないデータも出力されます。表接頭辞、結合条件の指定が必須です。"
-	}
+	},
 	
-	,"クロス結合": {
+	"クロス結合": {
 		"prefix": "CROSS JOIN",
 		"body": ["CROSS JOIN ${1:結合するテーブル名} ${2:表接頭辞}"],
 		"description": "クロス結合ではテーブルの全ての組み合わせパターンが出力されます。結合条件は指定できません。"
-	}
+	},
 	
-	,"FROM JOIN ON": {
+	"FROM JOIN ON": {
 		"prefix": "FROM .. JOIN .. ON ..",
 		"body": ["FROM ${1:テーブル名1} ${2:表接頭辞1}","JOIN ${3:テーブル名2} ${4:表接頭辞2}","ON ${5:結合条件}"],
 		"description": "[例] FROM table1 T1 JOIN table2 T2 ON T1.col1 = T2.col1"
-	}
+	},
 	
 	
 	// 集合演算子関連
-	,"和集合（重複削除）": {
+	"和集合（重複削除）": {
 		"prefix": "UNION",
 		"body": ["UNION",""],
 		"description": "和集合（重複削除）"
-	}
+	},
 	
-	,"和集合（重複含む）": {
+	"和集合（重複含む）": {
 		"prefix": "UNION ALL",
 		"body": ["UNION ALL",""],
 		"description": "和集合（重複含む）"
-	}
+	},
 	
-	,"積集合": {
+	"積集合": {
 		"prefix": "INTERSECT",
 		"body": ["INTERSECT",""],
 		"description": "積集合"
-	}
+	},
 	
-	,"差集合": {
+	"差集合": {
 		"prefix": "MINUS",
 		"body": ["MINUS",""],
 		"description": "差集合"
-	}
+	},
 	
 	
 	// 副問い合わせ関連
-	,"=ANY": {
+	"=ANY": {
 		"prefix": "=ANY (..)",
 		"body": ["=ANY (${1:サブクエリ})"],
 		"description": "複数行副問合せ。サブクエリの結果のどれかに一致するもの（INと同じ）。"
-	}
+	},
 	
-	,">ANY": {
+	">ANY": {
 		"prefix": ">ANY (..)",
 		"body": [">ANY (${1:サブクエリ})"],
 		"description": "複数行副問合せ。サブクエリの結果の一番小さい値より大きいものが一致。"
-	}
+	},
 	
-	,"<ANY": {
+	"<ANY": {
 		"prefix": "<ANY (..)",
 		"body": ["<ANY (${1:サブクエリ})"],
 		"description": "複数行副問合せ。サブクエリの結果の一番大きい値より小さいものが一致。"
-	}
+	},
 	
-	,"<>ALL": {
+	"<>ALL": {
 		"prefix": "<>ALL (..)",
 		"body": ["<>ALL (${1:サブクエリ})"],
 		"description": "複数行副問合せ。サブクエリの結果のすべてに一致しない場合（NOT INと同じ）。"
-	}
+	},
 	
-	,">ALL": {
+	">ALL": {
 		"prefix": ">ALL (..)",
 		"body": [">ALL (${1:サブクエリ})"],
 		"description": "複数行副問合せ。サブクエリの結果の一番大きい値より大きいものが一致。"
-	}
+	},
 	
-	,"<ALL": {
+	"<ALL": {
 		"prefix": "<ALL (..)",
 		"body": ["<ALL (${1:サブクエリ})"],
 		"description": "複数行副問合せ。サブクエリの結果の一番小さい値より小さいものが一致。"
-	}
+	},
+	
 	
 	
 	// 演算子
-	,"BETWEEN演算子": {
+	"BETWEEN演算子": {
 		"prefix": "BETWEEN .. AND ..",
 		"body": ["BETWEEN ${1:最小値} AND ${2:最大値}"],
 		"description": "BETWEEN"
-	}
+	},
 	
-	,"IN演算子": {
+	"IN演算子": {
 		"prefix": "IN (..)",
 		"body": ["IN (${1:値／サブクエリ})"],
 		"description": "IN"
-	}
+	},
 	
-	,"LIKE演算子": {
+	"LIKE演算子": {
 		"prefix": "LIKE '..'",
 		"body": ["LIKE '${1:文字列 % _ など}'"],
 		"description": "LIKE"
-	}
+	},
+	
 	
 	
 	// 条件
-	,"AND": {
+	"AND": {
 		"prefix": "AND",
 		"body": ["AND "],
 		"description": "AND"
-	}
+	},
 	
-	,"OR": {
+	"OR": {
 		"prefix": "OR",
 		"body": ["OR "],
 		"description": "OR"
-	}
+	},
 	
-	,"NOT": {
+	"NOT": {
 		"prefix": "NOT",
 		"body": ["NOT "],
 		"description": "NOT"
-	}
+	},
 	
-	,"IS NULL": {
+	"IS NULL": {
 		"prefix": "IS NULL",
 		"body": ["IS NULL"],
 		"description": "IS NULL"
-	}
+	},
 	
-	,"IS NOT NULL": {
+	"IS NOT NULL": {
 		"prefix": "IS NOT NULL",
 		"body": ["IS NOT NULL"],
 		"description": "IS NOT NULL"
-	}
+	},
+	
 	
 	
 	// グループ関数
-	,"COUNT関数 通常": {
+	"COUNT関数 通常": {
 		"prefix": "COUNT(..)",
 		"body": ["COUNT(${1:カラム名／値})"],
 		"description": "COUNT"
-	}
+	},
 	
-	,"COUNT関数 *": {
+	"COUNT関数 *": {
 		"prefix": "COUNT(*)",
 		"body": ["COUNT(*)"],
 		"description": "COUNT"
-	}
+	},
 	
-	,"SUM関数": {
+	"SUM関数": {
 		"prefix": "SUM(..)",
 		"body": ["SUM(${1:カラム名／値})"],
 		"description": "SUM"
-	}
+	},
 	
-	,"MIN関数": {
+	"MIN関数": {
 		"prefix": "MIN(..)",
 		"body": ["MIN(${1:カラム名／値})"],
 		"description": "MIN"
-	}
+	},
 	
-	,"MAX関数": {
+	"MAX関数": {
 		"prefix": "MAX(..)",
 		"body": ["MAX(${1:カラム名／値})"],
 		"description": "MAX"
-	}
+	},
+	
 	
 	
 	//その他キーワード
-	,"単純CASE式": {
+	"単純CASE式": {
 		"prefix": "CASE .. WHEN ... END",
 		"body": [
 			"CASE ${1:カラム名}",
@@ -374,9 +360,9 @@
 			""
 		],
 		"description": "[例] CASE col1 WHEN 1 THEN 'one' WHEN 2 THEN 'two' ELSE 'other' END"
-	}
+	},
 	
-	,"検索CASE式": {
+	"検索CASE式": {
 		"prefix": "CASE WHEN ... END",
 		"body": [
 			"CASE WHEN ${1:条件1} THEN ${2:処理1}",
@@ -385,55 +371,54 @@
 			""
 		],
 		"description": "[例] CASE WHEN col1 IS NULL THEN 'nothing' ELSE col1 END"
-	}
+	},
 	
-	,"重複削除": {
+	"重複削除": {
 		"prefix": "DISTINCT",
 		"body": ["DISTINCT"],
 		"description": "[例] SELECT DISTINCT col1, col2 FROM table1;"
-	}
+	},
 	
-	,"SELECT DISTINCT": {
+	"SELECT DISTINCT": {
 		"prefix": "SELECT DISTINCT ..",
 		"body": ["SELECT DISTINCT ${1:カラム名}"],
 		"description": "[例] SELECT DISTINCT col1, col2"
-	}
+	},
 	
-	,"昇順ソート": {
+	"昇順ソート": {
 		"prefix": "ASC",
 		"body": ["ASC"],
 		"description": "[例] ORDER BY col1 ASC"
-	}
+	},
 	
-	,"重複含む": {
+	"重複含む": {
 		"prefix": "ALL",
 		"body": ["ALL"],
 		"description": "[例] AVG(ALL col1);"
-	}
+	},
 	
-	,"降順ソート": {
+	"降順ソート": {
 		"prefix": "DESC",
 		"body": ["DESC"],
 		"description": "[例] ORDER BY col1 DESC"
-	}
+	},
 	
-	,"AS 列別名": {
+	"AS 列別名": {
 		"prefix": "AS ..",
 		"body": ["AS ${1:列別名}"],
 		"description": "[例] col1 AS empname"
-	}
+	},
 	
-	,"AS \"列別名\"": {
+	"AS \"列別名\"": {
 		"prefix": "AS \"..\"",
 		"body": ["AS \"${1:列別名}\""],
 		"description": "[例] col1 AS \"empname\""
-	}
-	
+	},
 	
 	
 	
 	// DML
-	,"INSERT文": {
+	"INSERT文": {
 		"prefix": "INSERT INTO ...",
 		"body": [
 			"INSERT INTO ${1:テーブル名} (${2:カラム名1}, ${3:カラム名2})",
@@ -442,9 +427,9 @@
 			";"
 		],
 		"description": "INSERT"
-	}
+	},
 	
-	,"UPDATE文": {
+	"UPDATE文": {
 		"prefix": "UPDATE ...",
 		"body": [
 			"UPDATE ${1:テーブル名}",
@@ -454,29 +439,24 @@
 			";"
 		],
 		"description": "UPDATE文"
-	}
+	},
 	
-	,"DELETE文": {
+	"DELETE文": {
 		"prefix": "DELETE FROM ...",
-		"body": [
-			"DELETE FROM ${1:テーブル名}",
-			"WHERE ${2:条件}",
-			";"
-		],
+		"body": ["DELETE FROM ${1:テーブル名}","WHERE ${2:条件}",";"],
 		"description": "DELETE"
-	}
+	},
+	
+	
 	
 	// DDL
-	,"TRUNCATE TABLE文": {
+	"TRUNCATE TABLE文": {
 		"prefix": "TRUNCATE TABLE ...",
-		"body": [
-			"TRUNCATE TABLE ${1:テーブル名};",
-			""
-		],
+		"body": ["TRUNCATE TABLE ${1:テーブル名};",""],
 		"description": "TRUNCATE TABLE"
-	}
+	},
 	
-	,"CREATE TABLE文": {
+	"CREATE TABLE文": {
 		"prefix": "CREATE TABLE ...",
 		"body": [
 			"CREATE TABLE ${1:テーブル名} (",
@@ -487,16 +467,12 @@
 			");"
 		],
 		"description": "CREATE TABLE"
-	}
+	},
 	
-	,"DROP TABLE文": {
+	"DROP TABLE文": {
 		"prefix": "DROP TABLE ...",
-		"body": [
-			"DROP TABLE ${1:テーブル名};",
-			""
-		],
+		"body": ["DROP TABLE ${1:テーブル名};",""],
 		"description": "DROP TABLE"
 	}
-	
 	
 }
