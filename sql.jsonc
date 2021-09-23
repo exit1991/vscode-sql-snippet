@@ -12,6 +12,12 @@
 		"description": "[例] SELECT col1, COUNT(*) FROM table1 WHERE col2 = 3 GROUP BY col1 HAVING COUNT(*) >= 2 ORDER BY COUNT(*);"
 	},
 	
+	"SELECT * ..": {
+		"prefix": "SELECT * FROM ..",
+		"body": ["SELECT *","FROM ${1:テーブル名}",";"],
+		"description": "[例] SELECT * FROM table1;"
+	},
+	
 	"SELECT COUNT(*) ..": {
 		"prefix": "SELECT COUNT(*) FROM ..",
 		"body": ["SELECT COUNT(*)","FROM ${1:テーブル名}",";"],
